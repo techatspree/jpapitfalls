@@ -9,16 +9,16 @@ import javax.ejb.Stateless;
 public class SerializedCollectionPitfall implements JpaPitfall{
     @Override
     public String getId() {
-        return null;
+        return "Serialized Collection";
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "tbd";
     }
 
     @Override
     public String executeExperiment() {
-        return null;
+        return "tbd";
     }
 }
