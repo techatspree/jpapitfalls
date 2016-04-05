@@ -1,7 +1,8 @@
 package de.akquinet.jpapitfalls.experiment;
 
-public interface JpaPitfall {
+public interface Experiment {
     String getId();
+    String getName();
     String getDescription();
     String executeExperiment();
 }

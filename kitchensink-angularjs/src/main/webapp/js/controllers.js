@@ -11,6 +11,9 @@ angular.module('controllers', ['services'])
         };
 
         $scope.runSelectedExperiment = function () {
-            $scope.result = "The result of experiment " + $scope.selectedExperiment.id;
+            experimentsResource.get({experimentId:$scope.selectedExperiment.id}, function(result) {
+                $scope.result = result.description;
+            });
+
         }
     });

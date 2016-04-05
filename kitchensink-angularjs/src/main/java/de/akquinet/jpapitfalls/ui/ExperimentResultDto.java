@@ -5,8 +5,6 @@ import lombok.Value;
 
 @Value
 @Builder
-public class ExperimentDto {
-    String id;
-    String name;
-    String description;
+public class ExperimentResultDto {
+    private String description;
 }

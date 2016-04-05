@@ -1,14 +1,18 @@
 package de.akquinet.jpapitfalls.experiment.serializedcollection;
 
-import de.akquinet.jpapitfalls.experiment.JpaPitfall;
+import de.akquinet.jpapitfalls.experiment.Experiment;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
-public class SerializedCollectionPitfall implements JpaPitfall{
+public class SerializedCollectionExperiment implements Experiment {
     @Override
     public String getId() {
+        return "serializedcollection";
+    }
+
+    @Override
+    public String getName() {
         return "Serialized Collection";
     }
 
