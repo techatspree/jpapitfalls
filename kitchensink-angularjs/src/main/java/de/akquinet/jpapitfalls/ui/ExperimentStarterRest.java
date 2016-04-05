@@ -10,7 +10,7 @@ import static de.akquinet.jpapitfalls.ui.ExperimentDto.*;
 /**
  * Created by tnfink on 23.03.16.
  */
-@Path("experiments")
+@Path("experiment")
 public class ExperimentStarterRest {
 
     @GET
