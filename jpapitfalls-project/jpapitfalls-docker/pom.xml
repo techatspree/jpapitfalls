@@ -18,15 +18,4 @@
         <module>jpapitfalls-docker-postgres</module>
     </modules>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>0.4.5</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>
