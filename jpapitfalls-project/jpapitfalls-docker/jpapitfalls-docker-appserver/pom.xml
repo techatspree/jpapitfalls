@@ -56,17 +56,8 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
                     <imageName>jpapitfalls-appserver</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

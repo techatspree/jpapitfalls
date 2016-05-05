@@ -20,10 +20,10 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                    <configuration>
-                        <imageName>jpapitfalls-postgres</imageName>
-                        <dockerDirectory>src/main/docker</dockerDirectory>
-                    </configuration>
+                <configuration>
+                    <imageName>jpapitfalls-postgres</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>
