@@ -1,0 +1,19 @@
+version: '2'
+services:
+  jpapitfalls-db:
+    image: jpapitfalls-postgres
+    ports:
+     - "5432:5432"
+  jpapitfalls-app:
+    image: jpapitfalls-appserver
+    ports:
+         - ":8080:8080"
+         - ":9990:9990"
+    entrypoint:
+        - /opt/jboss/wildfly/bin/standalone.sh
+        - -b
+        - 0.0.0.0
+        - -bmanagement
+        - 0.0.0.0
+    depends_on:
+         - jpapitfalls-db

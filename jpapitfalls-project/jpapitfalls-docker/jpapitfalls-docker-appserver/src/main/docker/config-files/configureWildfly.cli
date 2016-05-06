@@ -16,7 +16,7 @@ deploy /opt/jboss/config-files/postgresql-9.4-1201.jdbc41.jar
 # ==================
 
 /subsystem=datasources/data-source=JpaPitfallsDS:add(\
-  connection-url=jdbc:postgresql://127.0.0.1:5432/jpapitfalls-db,\
+  connection-url=jdbc:postgresql://jpapitfalls-db:5432/jpapitfalls_db,\
   user-name=jpapitfalls_usr, password=SecretPassword,\
   jndi-name=java:jboss/datasources/JpaPitfallsDS,\
   driver-name=postgresql-9.4-1201.jdbc41.jar)
