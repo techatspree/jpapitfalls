@@ -6,20 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 @MappedSuperclass
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class EntityBase {
+public abstract class EntityBase implements Serializable {
 
     @Id
     @GeneratedValue
     @Getter
-    private long id;
+    private Long id;
 
 }

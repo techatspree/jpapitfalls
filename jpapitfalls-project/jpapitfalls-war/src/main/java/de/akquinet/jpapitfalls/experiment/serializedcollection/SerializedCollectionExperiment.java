@@ -2,10 +2,15 @@ package de.akquinet.jpapitfalls.experiment.serializedcollection;
 
 import de.akquinet.jpapitfalls.experiment.Experiment;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 @Stateless
 public class SerializedCollectionExperiment implements Experiment {
+
+    @EJB
+    private SerializedCollectionsOperations serializedCollectionsOperations;
+
     @Override
     public String getId() {
         return "serializedcollection";
@@ -23,7 +28,14 @@ public class SerializedCollectionExperiment implements Experiment {
 
     @Override
     public String executeExperiment() {
+        StringBuilder result = new StringBuilder();
 
-        return "tbd";
+        final Long fieldOfStudyId = serializedCollectionsOperations.createFieldOfStudyAndStudentsTheWrongWay();
+
+        serializedCollectionsOperations.setAllStudentsToPassed(fieldOfStudyId);
+
+        serializedCollectionsOperations.listStudentsPassedGrade(fieldOfStudyId, result);
+
+        return result.toString();
     }
 }

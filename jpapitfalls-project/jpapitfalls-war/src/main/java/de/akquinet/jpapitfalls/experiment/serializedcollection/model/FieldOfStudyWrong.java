@@ -22,6 +22,7 @@ public class FieldOfStudyWrong extends EntityBase {
 
     @SuppressWarnings("JpaAttributeTypeInspection")
     @Basic
+    @Getter
     private HashSet<StudentWrong> students = new HashSet<>();
 
 }

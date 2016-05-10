@@ -4,16 +4,22 @@ import de.akquinet.jpapitfalls.experiment.model.EntityBase;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Builder
-@ToString
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentWrong extends EntityBase{
+public class StudentWrong extends EntityBase implements Serializable{
 
     @Basic
     @Getter
     @Setter
     private String name;
+
+    @Basic
+    @Getter
+    @Setter
+    private Boolean passed;
 }
