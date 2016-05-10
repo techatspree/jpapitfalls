@@ -6,7 +6,6 @@ import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.HashSet;
@@ -54,7 +53,7 @@ public class SerializedCollectionsOperations {
         final StudentWrong student1 = createAndPersistStudent("student 1");
         final StudentWrong student2 = createAndPersistStudent("student 2");
 
-        HashSet<StudentWrong> students = new HashSet<StudentWrong>();
+        HashSet<StudentWrong> students = new HashSet<>();
         students.add(student1);
         students.add(student2);
 

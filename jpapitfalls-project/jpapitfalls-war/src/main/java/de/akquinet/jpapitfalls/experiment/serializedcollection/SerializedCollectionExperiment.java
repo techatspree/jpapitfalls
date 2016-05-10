@@ -5,6 +5,7 @@ import de.akquinet.jpapitfalls.experiment.Experiment;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+@SuppressWarnings("unused")
 @Stateless
 public class SerializedCollectionExperiment implements Experiment {
 
