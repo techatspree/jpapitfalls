@@ -32,9 +32,9 @@ public class SerializedCollectionsOperations {
             final StudentWrong studentFromDatabase = em.find(StudentWrong.class, student.getId());
             sb
                     .append(student.getName())
-                    .append(" => ")
+                    .append(": from collection passed = ")
                     .append(student.getPassed())
-                    .append(" and from the database ")
+                    .append(", from database passed = ")
                     .append(studentFromDatabase.getPassed())
                     .append("<br>");
         }
