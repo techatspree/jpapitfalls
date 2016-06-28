@@ -1,6 +1,7 @@
 package de.akquinet.jpapitfalls.experiment.serializedcollection;
 
 import de.akquinet.jpapitfalls.experiment.Experiment;
+import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudy;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -24,18 +25,21 @@ public class SerializedCollectionExperiment implements Experiment {
 
     @Override
     public String getDescription() {
-        return "tbd";
+        return "This experiment shows that serialized collections may be falsely used as relational associations.";
     }
 
     @Override
     public String executeExperiment() {
         StringBuilder result = new StringBuilder();
 
-        final Long fieldOfStudyId = serializedCollectionsOperations.createFieldOfStudyAndStudentsTheWrongWay();
+        final FieldOfStudy fieldOfStudy = serializedCollectionsOperations.createFieldOfStudyAndStudentsTheWrongWay();
 
-        serializedCollectionsOperations.setAllStudentsToPassed(fieldOfStudyId);
+        result.append("<b>Doing it the wrong way:</b><br>");
 
-        serializedCollectionsOperations.listStudentsPassedGrade(fieldOfStudyId, result);
+        serializedCollectionsOperations.setAllStudentsToPassed(fieldOfStudy, result);
+        serializedCollectionsOperations.listStudentsFromCollectionAndFromDatabase(fieldOfStudy, result);
+
+        result.append("<b>Doing it the right way:</b><br>");
 
         return result.toString();
     }

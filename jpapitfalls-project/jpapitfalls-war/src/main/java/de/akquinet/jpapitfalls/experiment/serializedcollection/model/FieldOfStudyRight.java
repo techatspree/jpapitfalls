@@ -5,14 +5,17 @@ import lombok.*;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FieldOfStudyWrong extends EntityBase implements FieldOfStudy {
+public class FieldOfStudyRight extends EntityBase  {
 
     @Basic
     @Getter
@@ -20,8 +23,9 @@ public class FieldOfStudyWrong extends EntityBase implements FieldOfStudy {
     private String name;
 
     @SuppressWarnings("JpaAttributeTypeInspection")
-    @Basic
+    @OneToMany()
+    @JoinColumn(name="FIELD_OF_STUDY_ID")
     @Getter
-    private HashSet<Student> students = new HashSet<>();
+    private Set<Student> students = new HashSet<>();
 
 }

@@ -1,7 +1,8 @@
 package de.akquinet.jpapitfalls.experiment.serializedcollection;
 
+import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudy;
 import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudyWrong;
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.StudentWrong;
+import de.akquinet.jpapitfalls.experiment.serializedcollection.model.Student;
 import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;
@@ -24,13 +25,14 @@ public class SerializedCollectionsOperations {
     }
 
     @TransactionAttribute(REQUIRES_NEW)
-    public void listStudentsPassedGrade(Long fieldOfStudyId, StringBuilder sb) {
-        final FieldOfStudyWrong fieldOfStudy = em.find(FieldOfStudyWrong.class, fieldOfStudyId);
-        for (StudentWrong student : fieldOfStudy.getStudents()) {
+    public void listStudentsFromCollectionAndFromDatabase(FieldOfStudy fieldOfStudy, StringBuilder sb) {
+        for (Student student : fieldOfStudy.getStudents()) {
             LOG.debugf("list %s", student);
-            final StudentWrong studentFromDatabase = em.find(StudentWrong.class, student.getId());
+            final Student studentFromDatabase = em.find(Student.class, student.getId());
             sb
+                    .append("student '")
                     .append(student.getName())
+                    .append("'")
                     .append(": from collection passed = ")
                     .append(student.getPassed())
                     .append(", from database passed = ")
@@ -40,20 +42,22 @@ public class SerializedCollectionsOperations {
     }
 
     @TransactionAttribute(REQUIRES_NEW)
-    public void setAllStudentsToPassed(Long fieldOfStudyId) {
-        final FieldOfStudyWrong fieldOfStudy = em.find(FieldOfStudyWrong.class, fieldOfStudyId);
-        for (StudentWrong student : fieldOfStudy.getStudents()) {
-            LOG.debugf("set passed on %s", student);
+    public void setAllStudentsToPassed(FieldOfStudy fieldOfStudy, StringBuilder sb) {
+        for (Student student : fieldOfStudy.getStudents()) {
+            sb
+                    .append("set passed to true on ")
+                    .append(student.getName())
+                    .append("<br>");
             student.setPassed(true);
         }
     }
 
     @TransactionAttribute(REQUIRES_NEW)
-    public Long createFieldOfStudyAndStudentsTheWrongWay() {
-        final StudentWrong student1 = createAndPersistStudent("student 1");
-        final StudentWrong student2 = createAndPersistStudent("student 2");
+    public FieldOfStudy createFieldOfStudyAndStudentsTheWrongWay() {
+        final Student student1 = createAndPersistStudent("student 1");
+        final Student student2 = createAndPersistStudent("student 2");
 
-        HashSet<StudentWrong> students = new HashSet<>();
+        HashSet<Student> students = new HashSet<>();
         students.add(student1);
         students.add(student2);
 
@@ -64,14 +68,14 @@ public class SerializedCollectionsOperations {
 
         LOG.debugf("created %s", fieldOfStudy);
 
-        return fieldOfStudy.getId();
+        return fieldOfStudy;
     }
 
-    public StudentWrong createAndPersistStudent(String name) {
-        final StudentWrong student = StudentWrong.builder().name(name).build();
+    public Student createAndPersistStudent(String name) {
+        final Student student = Student.builder().name(name).build();
         em.persist(student);
         em.flush();
-        LOG.debugf("created student: %s",student);
+        LOG.debugf("created student: %s", student);
         return student;
     }
 }

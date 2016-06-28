@@ -11,7 +11,7 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentWrong extends EntityBase implements Serializable{
+public class Student extends EntityBase implements Serializable{
 
     @Basic
     @Getter
