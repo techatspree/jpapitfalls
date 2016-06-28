@@ -7,7 +7,6 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +14,7 @@ import java.util.Set;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class FieldOfStudyRight extends EntityBase  {
+public class FieldOfStudyRight extends EntityBase implements FieldOfStudy {
 
     @Basic
     @Getter
@@ -26,6 +25,7 @@ public class FieldOfStudyRight extends EntityBase  {
     @OneToMany()
     @JoinColumn(name="FIELD_OF_STUDY_ID")
     @Getter
-    private Set<Student> students = new HashSet<>();
+    @Singular
+    private Set<Student> students;
 
 }

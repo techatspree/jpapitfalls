@@ -1,7 +1,6 @@
 package de.akquinet.jpapitfalls.experiment.serializedcollection;
 
 import de.akquinet.jpapitfalls.experiment.Experiment;
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudy;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -32,15 +31,23 @@ public class SerializedCollectionExperiment implements Experiment {
     public String executeExperiment() {
         StringBuilder result = new StringBuilder();
 
-        final FieldOfStudy fieldOfStudy = serializedCollectionsOperations.createFieldOfStudyAndStudentsTheWrongWay();
+        result.append("<br><i>Doing it the wrong way:</i><br>");
 
-        result.append("<b>Doing it the wrong way:</b><br>");
+        final Long fieldOfStudyWrongId =
+                serializedCollectionsOperations.createFieldOfStudyAndStudentsTheWrongWay();
 
-        serializedCollectionsOperations.setAllStudentsToPassed(fieldOfStudy, result);
-        serializedCollectionsOperations.listStudentsFromCollectionAndFromDatabase(fieldOfStudy, result);
+        serializedCollectionsOperations
+                .executeWrongExperiment(fieldOfStudyWrongId, result, this);
 
-        result.append("<b>Doing it the right way:</b><br>");
+        result.append("<br><i>Doing it the right way:</i><br>");
+
+        final Long fieldOfStudyRightId =
+                serializedCollectionsOperations.createFieldOfStudyAndStudentsTheRightWay();
+
+        serializedCollectionsOperations
+                .executeRightExperiment(fieldOfStudyRightId, result, this);
 
         return result.toString();
     }
+
 }
