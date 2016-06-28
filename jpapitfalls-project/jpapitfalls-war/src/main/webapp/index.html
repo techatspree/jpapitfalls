@@ -37,8 +37,10 @@
     </div>
     <div class="small-8 columns">
         <div>
-            <a class="button" ng-click="runSelectedExperiment()"> Run <span class="info badge"><i class="fi-play"></i></span></a>
-            {{selectedExperiment.name}}
+            <ul class="menu">
+                <li><a class="button" ng-click="runSelectedExperiment()"> Run <span class="info badge"><i class="fi-play"></i></span></a></li>
+                <li class="menu-text">{{selectedExperiment.name}}</li>
+            </ul>
         </div>
         <div class="callout">
             <section>
