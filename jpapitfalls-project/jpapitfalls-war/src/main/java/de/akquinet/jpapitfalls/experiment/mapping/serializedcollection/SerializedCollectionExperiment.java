@@ -1,4 +1,4 @@
-package de.akquinet.jpapitfalls.experiment.serializedcollection;
+package de.akquinet.jpapitfalls.experiment.mapping.serializedcollection;
 
 import de.akquinet.jpapitfalls.experiment.Experiment;
 
@@ -14,7 +14,7 @@ public class SerializedCollectionExperiment implements Experiment {
 
     @Override
     public String getId() {
-        return "serializedcollection";
+        return "mapping : (1) serialized collection";
     }
 
     @Override

@@ -1,9 +1,9 @@
-package de.akquinet.jpapitfalls.experiment.serializedcollection;
+package de.akquinet.jpapitfalls.experiment.mapping.serializedcollection;
 
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudy;
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudyRight;
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.FieldOfStudyWrong;
-import de.akquinet.jpapitfalls.experiment.serializedcollection.model.Student;
+import de.akquinet.jpapitfalls.experiment.mapping.serializedcollection.model.FieldOfStudy;
+import de.akquinet.jpapitfalls.experiment.mapping.serializedcollection.model.FieldOfStudyRight;
+import de.akquinet.jpapitfalls.experiment.mapping.serializedcollection.model.FieldOfStudyWrong;
+import de.akquinet.jpapitfalls.experiment.mapping.serializedcollection.model.Student;
 import org.jboss.logging.Logger;
 
 import javax.ejb.Stateless;

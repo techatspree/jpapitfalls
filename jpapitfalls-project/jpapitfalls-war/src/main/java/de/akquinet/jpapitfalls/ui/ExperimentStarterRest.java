@@ -1,6 +1,7 @@
 package de.akquinet.jpapitfalls.ui;
 
 import de.akquinet.jpapitfalls.experiment.Experiment;
+import de.akquinet.jpapitfalls.experiment.util.Utilities;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.inject.Any;
@@ -12,6 +13,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -27,14 +30,17 @@ public class ExperimentStarterRest {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ExperimentDto[] getAllExperiments() {
-        return experimentsAsStream()
-                .map(experiment -> ExperimentDto
-                        .builder()
-                        .id(experiment.getId())
-                        .name(experiment.getName())
-                        .description(experiment.getDescription())
-                        .build())
-                .toArray(ExperimentDto[]::new);
+        ExperimentDto[] dtos = experimentsAsStream()
+                        .map(experiment -> ExperimentDto
+                                .builder()
+                                .id(experiment.getId())
+                                .name(experiment.getName())
+                                .description(experiment.getDescription())
+                                .build())
+                        .toArray(ExperimentDto[]::new);
+        Arrays.sort(dtos,
+                (o1, o2) -> Utilities.compareStrings(o1.getId(), o2.getId()));
+        return dtos;
     }
 
     @GET

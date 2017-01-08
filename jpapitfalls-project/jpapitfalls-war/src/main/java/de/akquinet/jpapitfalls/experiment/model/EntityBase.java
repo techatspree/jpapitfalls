@@ -1,9 +1,9 @@
 package de.akquinet.jpapitfalls.experiment.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.GeneratedValue;
@@ -20,6 +20,7 @@ public abstract class EntityBase implements Serializable {
     @Id
     @GeneratedValue
     @Getter
+    @Setter
     private Long id;
 
 }

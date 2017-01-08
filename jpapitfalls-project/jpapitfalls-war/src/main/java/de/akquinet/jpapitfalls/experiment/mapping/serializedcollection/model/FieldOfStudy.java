@@ -1,4 +1,4 @@
-package de.akquinet.jpapitfalls.experiment.serializedcollection.model;
+package de.akquinet.jpapitfalls.experiment.mapping.serializedcollection.model;
 
 import java.util.Set;
 
