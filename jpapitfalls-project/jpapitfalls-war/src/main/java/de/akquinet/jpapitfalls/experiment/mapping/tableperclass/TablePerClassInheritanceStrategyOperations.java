@@ -92,18 +92,6 @@ public class TablePerClassInheritanceStrategyOperations {
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void selectTablePerClassInstances() {
-        /*
-        String queryText =
-                "SELECT e FROM EmployeeTablePerClass e " +
-                "WHERE e.firstname LIKE '%1%' AND e.weeklyhours > 25.0 " +
-                "ORDER BY e.lastname, e.firstname";
-        Query q = em.createQuery(queryText);
-        List<EmployeeTablePerClass> queryResult = q.getResultList();
-        for (EmployeeTablePerClass e : queryResult) {
-            String tmp1 = e.getFirstname();
-            double tmp2 = e.getWeeklyhours();
-        }
-        */
         String queryText = "SELECT i FROM InsuranceTablePerClass i";
         Query q = em.createQuery(queryText);
         List<InsuranceTablePerClass> queryResult = q.getResultList();
@@ -116,16 +104,6 @@ public class TablePerClassInheritanceStrategyOperations {
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void selectSingleTableInstances() {
-        /*String queryText =
-                "SELECT e FROM EmployeeSingleTable e " +
-                "WHERE e.firstname LIKE '%1%' AND e.weeklyhours > 25.0 " +
-                "ORDER BY e.lastname, e.firstname";
-        Query q = em.createQuery(queryText);
-        List<EmployeeSingleTable> queryResult = q.getResultList();
-        for (EmployeeSingleTable e : queryResult) {
-            String tmp1 = e.getFirstname();
-            double tmp2 = e.getWeeklyhours();
-        } */
         String queryText = "SELECT i FROM InsuranceSingleTable i";
         Query q = em.createQuery(queryText);
         List<InsuranceSingleTable> queryResult = q.getResultList();
