@@ -8,6 +8,7 @@ angular.module('controllers', ['services'])
 
         $scope.selectExperiment = function (experiment) {
             $scope.selectedExperiment = experiment;
+            $scope.result = "";
         };
 
         $scope.runSelectedExperiment = function () {
