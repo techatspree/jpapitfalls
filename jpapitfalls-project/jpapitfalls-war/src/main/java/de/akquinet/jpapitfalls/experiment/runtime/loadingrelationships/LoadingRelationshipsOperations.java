@@ -37,6 +37,18 @@ public class LoadingRelationshipsOperations {
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void selectRootObjectsPlusRelationshipNavigation() {
+        String queryText = "SELECT e FROM Employee e ORDER BY e.lastname, e.firstname";
+        Query q = em.createQuery(queryText);
+        List<Employee> queryResult = q.getResultList();
+        for (Employee e : queryResult) {
+            String dept = e.getDepartment() == null ? null : e.getDepartment().getName();
+            String carrier = e.getInsurance() == null ? null : e.getInsurance().getCarrier();
+            String tmp = e.getFirstname() + " " + e.getLastname() + " " + dept + " " + carrier;
+        }
+    }
+
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void selectUsingJoinQuery() {
         String queryText =
                 "SELECT e.firstname, e.lastname, d.name, i.carrier " +
@@ -46,18 +58,6 @@ public class LoadingRelationshipsOperations {
         List<Object[]> queryResult = q.getResultList();
         for (Object[] elem : queryResult) {
             String tmp = elem[0] + " " + elem[1] + " " + elem[2] + " " + elem[3];
-        }
-    }
-
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void selectRootObjectsPlusRelationshipNavigation() {
-        String queryText = "SELECT e FROM Employee e ORDER BY e.lastname, e.firstname";
-        Query q = em.createQuery(queryText);
-        List<Employee> queryResult = q.getResultList();
-        for (Employee e : queryResult) {
-            String dept = e.getDepartment() == null ? null : e.getDepartment().getName();
-            String carrier = e.getInsurance() == null ? null : e.getInsurance().getCarrier();
-            String tmp = e.getFirstname() + " " + e.getLastname() + " " + dept + " " + carrier;
         }
     }
 

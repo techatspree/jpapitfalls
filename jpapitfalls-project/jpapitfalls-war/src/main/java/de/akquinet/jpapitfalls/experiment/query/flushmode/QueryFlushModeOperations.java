@@ -40,8 +40,7 @@ public class QueryFlushModeOperations {
         Query q = em.createQuery(queryText);
         q.setFlushMode(FlushModeType.COMMIT);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -52,8 +51,7 @@ public class QueryFlushModeOperations {
         Query q = em.createQuery(queryText);
         q.setFlushMode(FlushModeType.AUTO);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

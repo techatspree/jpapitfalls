@@ -50,8 +50,9 @@ public class RelationshipOwnerOperations {
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void printEmployeesOfDepartment(Long deptId, StringBuilder result) {
         DepartmentOwner dept = em.find(DepartmentOwner.class, deptId);
-        result.append("Related emplyoees of Department " + dept + " <br>");
-        Utilities.printCollection(dept.getEmployees(), result);
+        result.append("Related employees of Department " + dept + " <br><ul>");
+        Utilities.printCollectionRelationship(dept.getEmployees(), result);
+        result.append("</ul>");
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

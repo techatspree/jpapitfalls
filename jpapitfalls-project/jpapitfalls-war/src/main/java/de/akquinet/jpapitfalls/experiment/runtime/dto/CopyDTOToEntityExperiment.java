@@ -34,8 +34,9 @@ public class CopyDTOToEntityExperiment implements Experiment {
         copyDTOToEntityOperations.createTestData();
         CopyDTOToEntityOperations.InsuranceDTO dto = copyDTOToEntityOperations.selectInsurance();
         dto.setCarrier("new name");
+        result.append("Create new Insurance instance, set id and carrier and call EM.merge.<br>");
         copyDTOToEntityOperations.copyDTOTheWrongWay(dto);
-        result.append("Updated insurance and associated employee:");
+        result.append("Updated insurance and associated employee:<br>");
         copyDTOToEntityOperations.printInsurance(dto.getId(), result);
         copyDTOToEntityOperations.clearTestData();
 
@@ -43,8 +44,9 @@ public class CopyDTOToEntityExperiment implements Experiment {
         copyDTOToEntityOperations.createTestData();
         dto = copyDTOToEntityOperations.selectInsurance();
         dto.setCarrier("new name");
+        result.append("Call EM.find with the id from the dto and set the carrier on the returned Insurance.<br>");
         copyDTOToEntityOperations.copyDTOTheRightWay(dto);
-        result.append("Updated insurance and associated employee:");
+        result.append("Updated insurance and associated employee:<br>");
         copyDTOToEntityOperations.printInsurance(dto.getId(), result);
         copyDTOToEntityOperations.clearTestData();
         return result.toString();

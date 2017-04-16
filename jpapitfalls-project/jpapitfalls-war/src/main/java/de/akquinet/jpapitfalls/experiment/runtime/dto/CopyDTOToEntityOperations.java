@@ -39,8 +39,9 @@ public class CopyDTOToEntityOperations {
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void copyDTOTheWrongWay(InsuranceDTO dto) {
-        Insurance ins = new Insurance(dto.getCarrier());
+        Insurance ins = new Insurance();
         ins.setId(dto.getId());
+        ins.setCarrier(dto.getCarrier());
         ins = em.merge(ins);
     }
 
@@ -54,7 +55,7 @@ public class CopyDTOToEntityOperations {
     public void printInsurance(Long id, StringBuilder result) {
         Insurance ins = em.find(Insurance.class, id);
         result.append(ins).append("<br>");
-        result.append("employee:").append("<br>");
+        result.append("employee: ");
         result.append(ins.getEmployee()).append("<br>");
     }
 

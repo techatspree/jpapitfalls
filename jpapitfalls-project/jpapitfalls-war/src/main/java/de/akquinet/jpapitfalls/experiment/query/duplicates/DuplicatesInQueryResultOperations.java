@@ -37,8 +37,7 @@ public class DuplicatesInQueryResultOperations {
         String queryText = "SELECT d FROM Department d JOIN d.employees e WHERE e.weeklyhours >= 39.0d";
         Query q = em.createQuery(queryText);
         List<Department> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -46,8 +45,7 @@ public class DuplicatesInQueryResultOperations {
         String queryText = "SELECT DISTINCT d FROM Department d JOIN d.employees e WHERE e.weeklyhours >= 39.0d";
         Query q = em.createQuery(queryText);
         List<Department> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

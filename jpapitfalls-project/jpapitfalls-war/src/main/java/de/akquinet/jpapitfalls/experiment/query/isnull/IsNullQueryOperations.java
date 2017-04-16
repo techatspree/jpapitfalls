@@ -37,8 +37,7 @@ public class IsNullQueryOperations {
         Query q = em.createQuery(queryText);
         q.setParameter("dept", null);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -46,8 +45,7 @@ public class IsNullQueryOperations {
         String queryText = "SELECT e FROM Employee e WHERE e.department IS NULL";
         Query q = em.createQuery(queryText);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

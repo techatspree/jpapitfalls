@@ -35,8 +35,9 @@ public class MergeResultExperiment implements Experiment {
         mergeResultOperations.createTestData();
         Employee emp = mergeResultOperations.selectEmployee();
         emp.setFirstname("Detached");
+        result.append("Update employee passed to EM.merge.<br>");
         mergeResultOperations.doMergeWrong(emp);
-        result.append("Print merge employee");
+        result.append("Print merged employee:<br>");
         mergeResultOperations.printEmployee(emp.getId(), result);
         mergeResultOperations.clearTestData();
 
@@ -44,8 +45,9 @@ public class MergeResultExperiment implements Experiment {
         mergeResultOperations.createTestData();
         emp = mergeResultOperations.selectEmployee();
         emp.setFirstname("Detached");
+        result.append("Update employee returned by EM.merge.<br>");
         mergeResultOperations.doMergeRight(emp);
-        result.append("Print merge employee");
+        result.append("Print merged employee:<br>");
         mergeResultOperations.printEmployee(emp.getId(), result);
         mergeResultOperations.clearTestData();
 

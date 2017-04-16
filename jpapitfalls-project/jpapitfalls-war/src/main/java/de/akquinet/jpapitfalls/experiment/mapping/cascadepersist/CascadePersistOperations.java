@@ -59,9 +59,7 @@ public class CascadePersistOperations {
         String queryText = "SELECT e FROM EmployeeNonCascade e";
         Query q = em.createQuery(queryText);
         List<EmployeeNonCascade> queryResult = q.getResultList();
-        result.append("The query \"").append(queryText).append("\" returns<br><ul>");
-        Utilities.printCollection(queryResult, result);
-        result.append("</ul>");
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -70,9 +68,7 @@ public class CascadePersistOperations {
         String queryText = "SELECT e FROM EmployeeCascadePersist e";
         Query q = em.createQuery(queryText);
         List<EmployeeCascadePersist> queryResult = q.getResultList();
-        result.append("The query \"").append(queryText).append("\" returns<br><ul>");
-        Utilities.printCollection(queryResult, result);
-        result.append("</ul>");
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)

@@ -36,8 +36,7 @@ public class OuterJoinQueryOperations {
         String queryText = "SELECT DISTINCT e.department FROM Employee e";
         Query q = em.createQuery(queryText);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -45,8 +44,7 @@ public class OuterJoinQueryOperations {
         String queryText = "SELECT DISTINCT d FROM Employee e LEFT OUTER JOIN e.department d";
         Query q = em.createQuery(queryText);
         List<Employee> queryResult = q.getResultList();
-        result.append("The following query <br>  ").append(queryText).append("<br>returns<br>");
-        Utilities.printCollection(queryResult, result);
+        Utilities.printQueryResult(queryText, queryResult, result);
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
