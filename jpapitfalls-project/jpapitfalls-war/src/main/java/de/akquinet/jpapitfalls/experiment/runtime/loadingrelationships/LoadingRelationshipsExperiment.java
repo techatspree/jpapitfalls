@@ -34,6 +34,7 @@ public class LoadingRelationshipsExperiment implements Experiment {
         result.append("<br><i>Doing it the wrong way:</i><br>");
         loadingRelationshipsOperations.createTestData();
         result.append("Select employees and navigate to related instances to retrieve their values.<br>");
+        System.gc();
         long before = System.currentTimeMillis();
         loadingRelationshipsOperations.selectRootObjectsPlusRelationshipNavigation();
         long after = System.currentTimeMillis();
@@ -44,6 +45,7 @@ public class LoadingRelationshipsExperiment implements Experiment {
         result.append("<br><i>Doing it the right way:</i><br>");
         loadingRelationshipsOperations.createTestData();
         result.append("Select all values using single JOIN query.<br>");
+        System.gc();
         before = System.currentTimeMillis();
         loadingRelationshipsOperations.selectUsingJoinQuery();
         after = System.currentTimeMillis();

@@ -33,6 +33,7 @@ public class OrderingInDBExperiment implements Experiment {
         result.append("<br><i>Doing it the wrong way:</i><br>");
         orderingInDBOperations.createTestData();
         result.append("Sort query result in memory.<br>");
+        System.gc();
         long before = System.currentTimeMillis();
         orderingInDBOperations.sortInMemory();
         long after = System.currentTimeMillis();
@@ -42,6 +43,7 @@ public class OrderingInDBExperiment implements Experiment {
         result.append("<br><i>Doing it the right way:</i><br>");
         orderingInDBOperations.createTestData();
         result.append("Sort query result in DB.<br>");
+        System.gc();
         before = System.currentTimeMillis();
         orderingInDBOperations.sortInDB();
         after = System.currentTimeMillis();

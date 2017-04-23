@@ -34,6 +34,7 @@ public class IterationExperiment implements Experiment {
         result.append("<br><i>Doing it the wrong way:</i><br>");
         iterationOperations.createTestData();
         result.append("Selecting all instances from DB and iterate in memory for filtering.<br>");
+        System.gc();
         long before = System.currentTimeMillis();
         iterationOperations.selectIterationInMemory();
         long after = System.currentTimeMillis();
@@ -44,6 +45,7 @@ public class IterationExperiment implements Experiment {
         result.append("<br><i>Doing it the right way:</i><br>");
         iterationOperations.createTestData();
         result.append("Selecting instances using a query.<br>");
+        System.gc();
         before = System.currentTimeMillis();
         iterationOperations.selectUsingQuery();
         after = System.currentTimeMillis();

@@ -34,6 +34,7 @@ public class ListVersusSetExperiment implements Experiment {
 
         result.append("<br><i>Doing it the wrong way:</i><br>");
         Long deptListId = listVersusSetOperations.createListInstances();
+        System.gc();
         long before = System.currentTimeMillis();
         listVersusSetOperations.addToList(deptListId);
         long after = System.currentTimeMillis();
@@ -45,6 +46,7 @@ public class ListVersusSetExperiment implements Experiment {
 
         result.append("<br><i>Doing it the right way:</i><br>");
         Long deptSetId = listVersusSetOperations.createSetInstances();
+        System.gc();
         before = System.currentTimeMillis();
         listVersusSetOperations.addToSet(deptSetId);
         after = System.currentTimeMillis();
