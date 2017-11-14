@@ -19,7 +19,7 @@ import javax.persistence.PersistenceContext;
 public class ListVersusSetOperations {
     private static Logger LOG = Logger.getLogger(ListVersusSetOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public ListVersusSetOperations() {}

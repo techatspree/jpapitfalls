@@ -22,7 +22,7 @@ public class CopyDTOToEntityOperations {
 
     private static Logger LOG = Logger.getLogger(CopyDTOToEntityOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public CopyDTOToEntityOperations() {}

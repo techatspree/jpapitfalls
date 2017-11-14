@@ -22,7 +22,7 @@ public class QueryFlushModeOperations {
 
     private static Logger LOG = Logger.getLogger(QueryFlushModeOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public QueryFlushModeOperations() {}

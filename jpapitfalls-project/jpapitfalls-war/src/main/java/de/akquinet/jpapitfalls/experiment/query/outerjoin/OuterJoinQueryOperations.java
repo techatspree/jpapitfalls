@@ -21,7 +21,7 @@ public class OuterJoinQueryOperations {
 
     private static Logger LOG = Logger.getLogger(OuterJoinQueryOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public OuterJoinQueryOperations() {}

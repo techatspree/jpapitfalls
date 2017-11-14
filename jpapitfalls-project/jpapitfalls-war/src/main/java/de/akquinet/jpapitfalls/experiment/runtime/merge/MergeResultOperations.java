@@ -20,7 +20,7 @@ public class MergeResultOperations {
 
     private static Logger LOG = Logger.getLogger(MergeResultOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public MergeResultOperations() {}

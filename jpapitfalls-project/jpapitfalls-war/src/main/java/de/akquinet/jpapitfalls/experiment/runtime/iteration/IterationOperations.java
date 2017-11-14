@@ -26,7 +26,7 @@ public class IterationOperations {
 
     private static Logger LOG = Logger.getLogger(IterationOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public IterationOperations() {}

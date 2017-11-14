@@ -22,7 +22,7 @@ import java.util.List;
 public class CascadePersistOperations {
     private static Logger LOG = Logger.getLogger(CascadePersistOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public CascadePersistOperations() {}

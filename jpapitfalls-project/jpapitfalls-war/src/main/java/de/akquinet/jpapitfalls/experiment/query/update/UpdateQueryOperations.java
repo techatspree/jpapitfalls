@@ -19,7 +19,7 @@ public class UpdateQueryOperations {
 
     private static Logger LOG = Logger.getLogger(UpdateQueryOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public UpdateQueryOperations() {}

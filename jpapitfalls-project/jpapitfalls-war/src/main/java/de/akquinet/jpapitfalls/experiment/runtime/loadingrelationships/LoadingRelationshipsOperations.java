@@ -25,7 +25,7 @@ public class LoadingRelationshipsOperations {
 
     private static Logger LOG = Logger.getLogger(LoadingRelationshipsOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public LoadingRelationshipsOperations() {}

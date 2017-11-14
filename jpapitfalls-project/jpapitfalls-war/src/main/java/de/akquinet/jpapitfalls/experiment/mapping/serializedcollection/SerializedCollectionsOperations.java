@@ -19,7 +19,7 @@ public class SerializedCollectionsOperations {
 
     private static Logger LOG = Logger.getLogger(SerializedCollectionsOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public SerializedCollectionsOperations() {

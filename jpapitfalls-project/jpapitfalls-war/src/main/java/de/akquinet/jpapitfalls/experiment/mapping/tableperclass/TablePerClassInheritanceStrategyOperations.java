@@ -29,7 +29,7 @@ public class TablePerClassInheritanceStrategyOperations {
 
     private static Logger LOG = Logger.getLogger(TablePerClassInheritanceStrategyOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public static final int NR_OF_EMPLOYEES = 100;

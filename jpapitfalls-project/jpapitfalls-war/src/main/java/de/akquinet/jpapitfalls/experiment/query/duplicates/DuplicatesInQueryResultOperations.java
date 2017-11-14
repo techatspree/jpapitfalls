@@ -22,7 +22,7 @@ public class DuplicatesInQueryResultOperations {
 
     private static Logger LOG = Logger.getLogger(DuplicatesInQueryResultOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public DuplicatesInQueryResultOperations () {}

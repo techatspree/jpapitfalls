@@ -21,7 +21,7 @@ public class IsNullQueryOperations {
 
     private static Logger LOG = Logger.getLogger(IsNullQueryOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public IsNullQueryOperations() {}

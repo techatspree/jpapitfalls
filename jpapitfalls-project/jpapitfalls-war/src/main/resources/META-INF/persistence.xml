@@ -12,4 +12,22 @@
          <property name="hibernate.show_sql" value="false" />
       </properties>
    </persistence-unit>
+
+   <persistence-unit name="se" transaction-type="RESOURCE_LOCAL">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.Department</class>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.Employee</class>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.FullTimeEmployee</class>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.Insurance</class>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.PartTimeEmployee</class>
+      <class>de.akquinet.jpapitfalls.experiment.model.company.Project</class>
+      <properties>
+         <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+         <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://jpapitfalls-db:5432/jpapitfalls_db"/>
+         <property name="javax.persistence.jdbc.user" value="jpapitfalls_usr"/>
+         <property name="javax.persistence.jdbc.password" value="SecretPassword"/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         <property name="hibernate.show_sql" value="false" />
+      </properties>
+   </persistence-unit>
 </persistence>

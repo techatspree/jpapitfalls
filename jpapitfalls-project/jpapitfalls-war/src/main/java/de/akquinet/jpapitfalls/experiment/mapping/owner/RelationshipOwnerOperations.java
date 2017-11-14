@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 public class RelationshipOwnerOperations {
     private static Logger LOG = Logger.getLogger(RelationshipOwnerOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public RelationshipOwnerOperations() {}

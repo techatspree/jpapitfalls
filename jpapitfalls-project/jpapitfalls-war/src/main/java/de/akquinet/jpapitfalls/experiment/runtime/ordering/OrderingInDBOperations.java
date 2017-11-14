@@ -26,7 +26,7 @@ public class OrderingInDBOperations {
 
     private static Logger LOG = Logger.getLogger(OrderingInDBOperations.class);
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     public OrderingInDBOperations() {}
