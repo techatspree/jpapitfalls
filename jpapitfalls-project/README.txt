@@ -19,14 +19,12 @@ b) Compilation
 
 c) Start up the system
 
-> cd jpapitfalls-docker/src/main/docker-compose/
+> cd jpapitfalls-docker/
 > docker-compose up
 
 d) Access the web application
 
 Navigate to
     http://DOCKER_IP:8080/jpa-pitfalls/
-with
-    DOCKER_IP = `boot2docker ip`
 .
 Then select an experiment on the left side and press "Run".

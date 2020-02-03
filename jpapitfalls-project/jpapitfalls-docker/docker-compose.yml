@@ -1,10 +1,12 @@
 version: '2'
 services:
   jpapitfalls-db:
+    build: jpapitfalls-docker-postgres
     image: jpapitfalls-postgres
     ports:
      - "5432:5432"
   jpapitfalls-app:
+    build: jpapitfalls-docker-appserver
     image: jpapitfalls-appserver
     ports:
          - "8080:8080"
