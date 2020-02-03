@@ -8,7 +8,7 @@ RUN /opt/jboss/wildfly/bin/add-user.sh admin admin+2016 --silent
 
 RUN /opt/jboss/wildfly/bin/jboss-cli.sh --file=/opt/jboss/config-files/configureWildfly.cli
 
-ADD jpapitfalls.war /opt/jboss/wildfly/standalone/deployments/
+ADD target/docker/jpapitfalls.war /opt/jboss/wildfly/standalone/deployments/
 
 # Fix for Error: Could not rename /opt/jboss/wildfly/standalone/configuration/standalone_xml_history/current
 

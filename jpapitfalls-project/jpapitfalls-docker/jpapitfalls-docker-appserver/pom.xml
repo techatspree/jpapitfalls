@@ -51,6 +51,13 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <configuration>
+                    <repository>jpapitfalls-appserver</repository>
+                </configuration>
+            </plugin>
             <!--
             <plugin>
                 <groupId>com.spotify</groupId>
