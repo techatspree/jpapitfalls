@@ -51,6 +51,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -59,6 +60,7 @@
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                 </configuration>
             </plugin>
+            -->
         </plugins>
     </build>
 </project>

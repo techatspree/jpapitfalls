@@ -19,10 +19,9 @@
         <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
                 <configuration>
-                    <imageName>jpapitfalls-postgres</imageName>
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <repository>jpapitfalls-postgres</repository>
                 </configuration>
             </plugin>
         </plugins>
