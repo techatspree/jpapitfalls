@@ -58,16 +58,6 @@
                     <repository>jpapitfalls-appserver</repository>
                 </configuration>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <imageName>jpapitfalls-appserver</imageName>
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                </configuration>
-            </plugin>
-            -->
         </plugins>
     </build>
 </project>
