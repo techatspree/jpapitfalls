@@ -14,18 +14,18 @@ public class CascadePersistExperiment implements Experiment {
 
     @Override
     public String getId() {
-        return "mapping : (3) cascade=persist";
+        return "mapping : (3) cascade=PERSIST";
     }
 
     @Override
     public String getName() {
-        return "Reachabiliy with cascade=persist";
+        return "Reachabiliy with cascade=PERSIST";
     }
 
     @Override
     public String getDescription() {
         return "This experiment shows the effect of annotating a relationship with " +
-                "cascade=persist with respect to reachability.";
+                "cascade=PERSIST with respect to reachability.";
     }
 
     @Override
